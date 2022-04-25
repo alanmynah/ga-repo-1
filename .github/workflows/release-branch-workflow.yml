@@ -1,0 +1,24 @@
+name: Release branch workflow
+
+on:
+  pull_request:
+    branches:
+      - release/*
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a multi-line script
+        run: |
+          echo Deploying...
+          sleep 1
+          echo Almost done!
+          echo Just deployed your service.
